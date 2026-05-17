@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg1" {
-  name = "krishna-rg"
+  name     = "krishna-rg"
   location = "East US"
 }
 
