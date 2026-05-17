@@ -5,8 +5,15 @@ on:
     branches:
       - main
 
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  terraform:
+
+  terraform-init:
+    name: Terraform Init
+
     runs-on: self-hosted
 
     steps:
@@ -19,8 +26,33 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+  terraform-validate:
+    name: Terraform Validate
+
+    runs-on: self-hosted
+
+    needs: terraform-init
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Terraform Init
+        run: terraform init
+
       - name: Terraform Validate
         run: terraform validate
+
+  terraform-fmt:
+    name: Terraform Format Check
+
+    runs-on: self-hosted
+
+    needs: terraform-validate
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: Terraform Format Check
         run: terraform fmt -check
