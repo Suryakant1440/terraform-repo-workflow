@@ -6,11 +6,15 @@ on:
       - main
 
 jobs:
-  my_first_job:
+  terraform init:
     name: My first job
     runs-on: self-hosted
     steps:
       - name: terraform init
         run: terraform init 
+      - name: terraform validate
+        run: terraform validate
+      - name: terraform fmt
+        run: terraform fmt
         
 
