@@ -9,6 +9,6 @@ jobs:
   my_first_job:
     name: My first job
     runs-on: self-hosted
-      echo "this is my first job"
+      
 
 
