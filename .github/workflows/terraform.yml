@@ -9,6 +9,8 @@ jobs:
   my_first_job:
     name: My first job
     runs-on: self-hosted
-      
-
+    steps:
+      - name: terraform init
+        run: terraform init 
+        
 
