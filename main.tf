@@ -1,4 +1,4 @@
-resource "azrerm_resource_group" "name" {
+resource "azurerm_resource_group" "name" {
 name = "krishna-rg"
 location = "East US"
 }
